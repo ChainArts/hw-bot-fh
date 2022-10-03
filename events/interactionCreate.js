@@ -3,7 +3,7 @@ const {EmbedBuilder} = require('discord.js');
 module.exports = {
 	name: 'interactionCreate',
 	execute(interaction) {
-        const logChannel = interaction.client.channels.cache.get('1024363665731895437');
+        const logChannel = interaction.client.channels.cache.get(process.env.LOG_CHANNEL);
         const timeStamp = Date.now();
         const logEmbed = new EmbedBuilder()
             .setDescription(`${interaction.user} in #${interaction.channel} used the command [${interaction}]!`)
