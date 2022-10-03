@@ -10,7 +10,7 @@ module.exports = {
             .setColor(0x800080)
             .setTimestamp(timeStamp);
 
-		console.log(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction. (${interaction})`);
+		console.log(`${interaction.user.tag} in #${interaction.channel.name} used the command [${interaction}]!`);
         logChannel.send({embeds: [logEmbed]});
 	},
 };
