@@ -1,0 +1,47 @@
+[
+    {
+        "subject": "Einführung Programmieren",
+        "description": "Moodle Themen",
+        "handIn": "Videos Anschauen bis nächste VL",
+        "deadline": 1665401400,
+        "links": [
+            "\nhttps://elearn.fh-salzburg.ac.at/course/view.php?id=5737"
+        ]
+    },
+    {
+        "subject": "Webprogramming",
+        "description": "HTML und Upload",
+        "handIn": "Online (SFTP) / https://users.multimediatechnology.at",
+        "deadline": 1664920740,
+        "links": [
+            "\nhttps://wiki.mediacube.at/wiki/index.php?title=Webprogrammierung_1_-_WS_2022"
+        ]
+    },
+    {
+        "subject": "Webprogramming",
+        "description": "Einstieg CSS",
+        "handIn": "Online (SFTP) / https://users.multimediatechnology.at",
+        "deadline": 1665611940,
+        "links": [
+            "\nhttps://wiki.mediacube.at/wiki/index.php?title=Webprogrammierung_1_-_WS_2022"
+        ]
+    },
+    {
+        "subject": "English",
+        "description": "Summary Dings",
+        "handIn": "Online / Moodle",
+        "deadline": 1665943200,
+        "links": [
+            "\nhttps://cdn.discordapp.com/attachments/1022053980139962396/1027177689955704942/unknown.png\nhttps://elearn.fh-salzburg.ac.at/mod/assign/view.php?id=164241"
+        ]
+    },
+    {
+        "subject": "Multimedia",
+        "description": "Zahlenformate",
+        "handIn": "Nächste Vorlesung (Freiwillig)",
+        "deadline": 1665648000,
+        "links": [
+            "\nhttps://media.discordapp.net/attachments/1022058620399136799/1028279898894250074/IMG_20221008_141659_898.jpg?width=903&height=676"
+        ]
+    }
+]
