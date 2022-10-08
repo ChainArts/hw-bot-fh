@@ -6,7 +6,7 @@ module.exports = {
         const logChannel = interaction.client.channels.cache.get(process.env.LOG_CHANNEL);
         const timeStamp = Date.now();
         const logEmbed = new EmbedBuilder()
-            .setDescription(`${interaction.user} in #${interaction.channel} used the command [${interaction}]!`)
+            .setDescription(`${interaction.user} in ${interaction.channel} used the command [${interaction}]!`)
             .setColor(0x800080)
             .setTimestamp(timeStamp);
 
