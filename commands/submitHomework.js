@@ -40,7 +40,7 @@ module.exports = {
 	async execute(interaction) {
         const linkString = interaction.options.getString('links').replace(',', '\n');
 
-        const addition = {
+        const newHomework = {
             subject: interaction.options.getString('subject'),
             description: interaction.options.getString('description'),
             handIn: interaction.options.getString('handin'),
@@ -53,7 +53,7 @@ module.exports = {
             }
             else {
                 const obj = JSON.parse(data);
-                obj.push(addition);
+                obj.push(newHomework);
                 const json = JSON.stringify(obj, null, 2);
                 fs.writeFile('./data/homework.json', json, 'utf-8', (err) => {
                     if (err) {
