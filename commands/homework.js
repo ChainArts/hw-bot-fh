@@ -4,19 +4,58 @@ const {EmbedBuilder} = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('homework')
-		.setDescription('Posts upcoming homework deadlines.'),
+		.setDescription('Posts upcoming homework deadlines.')
+        .addStringOption(option =>
+            option.setName('sort')
+                .setDescription('Choose Sorting (Deadline/Subject | Reverse Deadline/Reverse Subject')
+                .setRequired(true)
+                .addChoices(
+                    {name: 'Deadline', value:'dl'},
+                    {name: 'Subject', value:'sj'},
+                    {name: 'Reverse Deadline', value:'rdl'},
+                    {name: 'Reverse Subject', value:'rsj'},
+                )),
 	async execute(interaction) {
         delete require.cache[require.resolve('../data/homework')];
         const homework = require('../data/homework');
         const seperator = '----------------------------------';
         const homeworkEmbed = new EmbedBuilder()
         .setTitle('Active Assignments:')
-        .setTimestamp();
+        .setTimestamp()
+        .setColor(0x800080)
+        .setFooter({text: 'L Bozo'});
         homeworkEmbed.addFields({name: seperator, value: '\u200b'});
-        // Sort by Date
-        homework.sort(function(a, b){
-            return (a.deadline - b.deadline);
-        });
+        switch (interaction.options.getString('sort')){
+            case 'dl':
+                // Sort by Date
+                homework.sort(function(a, b){
+                    return (a.deadline - b.deadline);
+                });
+                break;
+                // Sort by Subject
+            case 'sj':
+                homework.sort(function(a, b){
+                    return (a.subject[0].localeCompare(b.subject[0]));
+                });
+                break;
+            case 'rdl':
+                // Sort by Reverse Date
+                homework.sort(function(a, b){
+                    return (b.deadline - a.deadline);
+                });
+                break;
+            case 'rsj':
+                // Sort by Reverse Subject
+                homework.sort(function(a, b){
+                    return (b.subject[0].localeCompare(a.subject[0]));
+                });
+                break;
+            default:
+                homework.sort(function(a, b){
+                    return (a.deadline - b.deadline);
+                });
+                break;
+        }
         // Generate Fields
         homework.map(function(hwEntry){
             if (hwEntry.deadline >= (Math.floor(Date.now() / 1000))){
