@@ -17,7 +17,7 @@ module.exports = {
 	async execute(interaction) {
         delete require.cache[require.resolve('../data/homework')];
         const homework = require('../data/homework');
-        const seperator = '----------------------------------';
+        const seperator = '---------------------------------------------';
         const homeworkEmbed = new EmbedBuilder()
         .setTitle('Active Assignments:')
         .setTimestamp()
