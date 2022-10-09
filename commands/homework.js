@@ -33,7 +33,50 @@ module.exports = {
         delete require.cache[require.resolve('../data/homework')];
         const homework = require('../data/homework');
         const seperator = '---------------------------------------------';
-        const hasFilter = interaction.options.getString('subjectfilter') != null;
+        // Set Filter
+        let hasFilter = interaction.options.getString('subjectfilter') != null;
+        let filterString = interaction.options.getString('subjectfilter');
+        const homeworkChannels = [
+            '1022055266071617607',
+            '1022055303459643402',
+            '1022055369490563072',
+            '1022058485619380275',
+            '1022058550828224612',
+            '1022058620399136799',
+            '1022058815190990878',
+            '1022058915468427324'];
+        if (homeworkChannels.includes(interaction.channel.id) && hasFilter === false){
+            switch (interaction.channel.id){
+                case homeworkChannels[0]:
+                    filterString = 'Programmierung';
+                    break;
+                case homeworkChannels[1]:
+                    filterString = 'Mathe';
+                    break;
+                case homeworkChannels[2]:
+                    filterString = 'Webdevelopment';
+                    break;
+                case homeworkChannels[3]:
+                    filterString = 'Konzeptentwicklung';
+                    break;
+                case homeworkChannels[4]:
+                    filterString = 'English';
+                    break;
+                case homeworkChannels[5]:
+                    filterString = 'Multimedia';
+                    break;
+                case homeworkChannels[6]:
+                    filterString = '3DPrototyping';
+                    break;
+                case homeworkChannels[7]:
+                    filterString = 'Computernetzwerke';
+                    break;
+                default:
+                    filterString = interaction.options.getString('subjectfilter');
+                    break;
+            }
+            hasFilter = true;
+        }
         let isEmpty = true;
         let sortMethod = 'By Date';
         const homeworkEmbed = new EmbedBuilder()
@@ -78,7 +121,7 @@ module.exports = {
         }
         // Generate Fields
         homework.map(function(hwEntry){
-            if (hwEntry.deadline >= (Math.floor(Date.now() / 1000)) && (hasFilter ? hwEntry.subject === interaction.options.getString('subjectfilter') : true)){
+            if (hwEntry.deadline >= (Math.floor(Date.now() / 1000)) && (hasFilter ? hwEntry.subject === filterString : true)){
                 isEmpty = false;
                 const d = new Date(hwEntry.deadline * 1000);
                 const deadlineDate = d.toLocaleDateString('de-AT') + ' | ' + d.toLocaleTimeString('de-AT').replace(/(:\d{2}| [AP]M)$/, '');
@@ -91,13 +134,13 @@ module.exports = {
         });
         if (isEmpty){
             if (hasFilter){
-                homeworkEmbed.addFields({name: 'No homework in ' + interaction.options.getString('subjectfilter') + '!', value: '** **'});
+                homeworkEmbed.addFields({name: 'No homework in ' + filterString + '!', value: '** **'});
             }
             else {
                 homeworkEmbed.addFields({name: 'No homework!', value: '** **'});
             }
         }
-        homeworkEmbed.setFooter({text: 'L Bozo  •  Filter: ' + (hasFilter ? interaction.options.getString('subjectfilter') : 'None') + ' | Sorted: ' + sortMethod});
+        homeworkEmbed.setFooter({text: 'L Bozo  •  Filter: ' + (hasFilter ? filterString : 'None') + ' | Sorted: ' + sortMethod});
 		await interaction.reply({embeds: [homeworkEmbed]});
 	},
 };
