@@ -1,20 +1,20 @@
 [
   {
-    "subject": "Einführung Programmieren",
+    "subject": "Programmierung",
     "description": "Moodle Themen",
     "handIn": "Videos Anschauen bis nächste VL",
     "deadline": 1665401400,
     "links": "\nhttps://elearn.fh-salzburg.ac.at/course/view.php?id=5737"
   },
   {
-    "subject": "Webprogramming",
+    "subject": "Webdevelopment",
     "description": "HTML und Upload",
     "handIn": "Online (SFTP) / https://users.multimediatechnology.at",
     "deadline": 1664920740,
     "links": "\nhttps://wiki.mediacube.at/wiki/index.php?title=Webprogrammierung_1_-_WS_2022"
   },
   {
-    "subject": "Webprogramming",
+    "subject": "Webdevelopment",
     "description": "Einstieg CSS",
     "handIn": "Online (SFTP) / https://users.multimediatechnology.at",
     "deadline": 1665611940,

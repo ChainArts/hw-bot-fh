@@ -10,10 +10,10 @@ module.exports = {
                 .setDescription('Choose subject')
                 .setRequired(true)
                 .addChoices(
-                    {name: '3DPrototyping', value:'3D-Prototyping'},
+                    {name: '3D-Prototyping', value:'3DPrototyping'},
                     {name: 'Computernetzwerke', value:'Computernetzwerke'},
                     {name: 'Datenbanken', value:'Datenbanken'},
-                    {name: 'Englisch', value:'Englisch'},
+                    {name: 'Englisch', value:'English'},
                     {name: 'Konzeptentwicklung', value:'Konzeptentwicklung'},
                     {name: 'Mathe', value:'Mathe'},
                     {name: 'Mediengestaltung', value:'Mediengestaltung'},
