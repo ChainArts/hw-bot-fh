@@ -8,7 +8,6 @@ module.exports = {
         .addStringOption(option =>
             option.setName('sort')
                 .setDescription('Choose Sorting (Deadline/Subject | Reverse Deadline/Reverse Subject')
-                .setRequired(true)
                 .addChoices(
                     {name: 'Deadline', value:'dl'},
                     {name: 'Subject', value:'sj'},
@@ -51,6 +50,7 @@ module.exports = {
                 });
                 break;
             default:
+                // Sort by Date
                 homework.sort(function(a, b){
                     return (a.deadline - b.deadline);
                 });
