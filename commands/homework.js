@@ -35,11 +35,11 @@ module.exports = {
         const seperator = '---------------------------------------------';
         const hasFilter = interaction.options.getString('subjectfilter') != null;
         let isEmpty = true;
+        let sortMethod = 'By Date';
         const homeworkEmbed = new EmbedBuilder()
         .setTitle('Active Assignments:')
         .setTimestamp()
-        .setColor(0x800080)
-        .setFooter({text: 'L Bozo'});
+        .setColor(0x800080);
         homeworkEmbed.addFields({name: seperator, value: '** **'});
         switch (interaction.options.getString('sort')){
             case 'dl':
@@ -50,17 +50,20 @@ module.exports = {
                 break;
                 // Sort by Subject
             case 'sj':
+                sortMethod = 'By Subject';
                 homework.sort(function(a, b){
                     return (a.subject[0].localeCompare(b.subject[0]));
                 });
                 break;
             case 'rdl':
+                sortMethod = 'By Reverse Date';
                 // Sort by Reverse Date
                 homework.sort(function(a, b){
                     return (b.deadline - a.deadline);
                 });
                 break;
             case 'rsj':
+                sortMethod = 'By Reverse Subject';
                 // Sort by Reverse Subject
                 homework.sort(function(a, b){
                     return (b.subject[0].localeCompare(a.subject[0]));
@@ -86,15 +89,15 @@ module.exports = {
                 '\n\n**__Deadline__: ' + deadlineDate + '**\n' + seperator + '\n'});
             }
         });
-        if (isEmpty)
-            {
-                if (hasFilter){
-                    homeworkEmbed.addFields({name: 'No homework in ' + interaction.options.getString('subjectfilter') + '!', value: '** **'});
-                }
-                else {
-                    homeworkEmbed.addFields({name: 'No homework!', value: '** **'});
-                }
+        if (isEmpty){
+            if (hasFilter){
+                homeworkEmbed.addFields({name: 'No homework in ' + interaction.options.getString('subjectfilter') + '!', value: '** **'});
             }
+            else {
+                homeworkEmbed.addFields({name: 'No homework!', value: '** **'});
+            }
+        }
+        homeworkEmbed.setFooter({text: 'L Bozo  •  Filter: ' + (hasFilter ? interaction.options.getString('subjectfilter') : 'None') + ' | Sorted: ' + sortMethod});
 		await interaction.reply({embeds: [homeworkEmbed]});
 	},
 };
