@@ -40,5 +40,12 @@
     "handIn": "Nächste Übungsstunde",
     "deadline": 1665561600,
     "links": "\nhttps://wiki.mediacube.at/wiki/index.php?title=Lineare_Algebra_-_WS_2022\n https://cdn.discordapp.com/attachments/1022055303459643402/1028470913500446850/unknown.png"
+  },
+  {
+    "subject": "3DPrototyping",
+    "description": "Blender, Unity Installieren",
+    "handIn": "Bis zur ersten Vorlesung",
+    "deadline": 1665727200,
+    "links": "\nhttps://cdn.discordapp.com/attachments/1022058815190990878/1029536868058013706/unknown.png"
   }
 ]
