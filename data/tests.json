@@ -1,0 +1,14 @@
+[
+  {
+    "subject": "Webdevelopment",
+    "description": "Test",
+    "deadline": 1669030200,
+    "links": "\nhttps://wiki.mediacube.at/wiki/index.php?title=Webprogrammierung_1_-_WS_2022"
+  },
+  {
+    "subject": "Programmierung",
+    "description": "Test",
+    "deadline": 1669636800,
+    "links": "\nhttps://elearn.fh-salzburg.ac.at/course/view.php?id=5737"
+  }
+]
